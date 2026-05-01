@@ -18,6 +18,7 @@ for anvandare in "$@"; do
 	 mkdir /home/$anvandare/Downloads
 	 mkdir /home/$anvandare/Work
 	# Sätt rättigheter så bara ägaren kan läsa och skriva
+	 chmod 700 /home/$anvandare
 	 chmod 700 /home/$anvandare/Documents
 	 chmod 700 /home/$anvandare/Downloads
 	 chmod 700 /home/$anvandare/Work
@@ -25,5 +26,5 @@ for anvandare in "$@"; do
 	 echo "Välkommen $anvandare" > /home/$anvandare/welcome.txt
 	# Lägg till lista på befintliga användare
 	 echo "Befintliga användare på systemet:" >> /home/$anvandare/welcome.txt
-	 cat /etc/passwd >> /home/$anvandare/welcome.txt
+	 cut -d: -fi /etc/passwd >> /home/$anvandare/welcome.txt
 done
