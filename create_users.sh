@@ -26,5 +26,5 @@ for anvandare in "$@"; do
 	 echo "Välkommen $anvandare" > /home/$anvandare/welcome.txt
 	# Lägg till lista på befintliga användare
 	 echo "Befintliga användare på systemet:" >> /home/$anvandare/welcome.txt
-	 cut -d: -fi /etc/passwd >> /home/$anvandare/welcome.txt
+	 cut -d: -f1 /etc/passwd >> /home/$anvandare/welcome.txt
 done
