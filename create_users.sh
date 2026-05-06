@@ -13,7 +13,7 @@ fi
 for anvandare in "$@"; do
 	echo "Skapar användare: $anvandare"
 	useradd -m "$anvandare"
-	# Skapa mappar för användare
+	# Skapa mappar för användare samt byter ägare av hemkatalogen
 	 mkdir /home/$anvandare/Documents
 	 mkdir /home/$anvandare/Downloads
 	 mkdir /home/$anvandare/Work
@@ -23,7 +23,7 @@ for anvandare in "$@"; do
 	 chmod 700 /home/$anvandare/Downloads
 	 chmod 700 /home/$anvandare/Work
  done
-	# Skapa welcome.txt med välkomstmeddelande
+	# Skapa loop med welcome.txt med välkomstmeddelande
 for anvandare in "$@"; do
 	 echo "Välkommen $anvandare" > /home/$anvandare/welcome.txt
 	# Lägg till lista på befintliga användare
